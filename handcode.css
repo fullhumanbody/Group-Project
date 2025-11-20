@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #111; 
+}
+
+#lampWrapper {
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    cursor: grab;
+} 
+/* grab div instead of just the image because it can be modified more easily */
+
+#handLamp {
+    width: 200px; 
+    user-select: none; 
+    pointer-events: none; 
+}
+
+
