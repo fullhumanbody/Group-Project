@@ -1,0 +1,36 @@
+
+#bug {
+  position: absolute;
+
+  width: 80px;    
+  height: 80px;   
+  object-fit: contain;
+  object-position: center;
+
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #111; 
+}
+
+#lampWrapper {
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    cursor: grab;
+} 
+/* grab div instead of just the image because it can be modified more easily */
+
+#handLamp {
+    width: 200px; 
+    user-select: none; 
+    pointer-events: none; 
+}
+
+#handLamp {
+  width: 70px;   /* pick any size */
+  height: auto;   /* keeps proportions */
+}
