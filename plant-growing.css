@@ -1,0 +1,6 @@
+#plant {
+    width: 150px;
+    transform-origin: bottom center;  /* ensures growth from the bottom */
+    transform: scale(1);
+    display: block;
+    margin: auto;  }
