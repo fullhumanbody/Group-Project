@@ -6,10 +6,10 @@
 
 $(document).ready(function () {
     var plant1Images = [
-        "images/plant1.2.png",
-        "images/plant1.3.png",
-        "images/plant1.4.png",
-        "images/plant1.5.png"
+        "plant1.2.png",
+        "plant1.3.png",
+        "plant1.4.png",
+        "plant1.5.png"
     ];
 
     var hoverInt, stop;
