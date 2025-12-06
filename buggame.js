@@ -1,84 +1,117 @@
+let bugsZapped = 0;
+let maxZaps = 30;
+let spawnInterval;  // store interval so we can stop spawning bugs
+
 window.onload = function () {
-  const bug = document.getElementById('bug');
-  const bodyWidth = window.innerWidth;
-  const bodyHeight = window.innerHeight;
 
-  let posX = Math.random() * (bodyWidth - 80);
-  let posY = Math.random() * (bodyHeight - 80);
+  function createBug() {
+    const bug = document.createElement("div");
+    bug.className = "bug";         
+    document.body.appendChild(bug);
 
-  let speed = 4;
-  let angle = Math.random() * Math.PI * 2;
-  let velX = Math.cos(angle) * speed;
-  let velY = Math.sin(angle) * speed;
+    const bodyWidth = window.innerWidth;
+    const bodyHeight = window.innerHeight;
 
-  function moveBug() {
-    posX += velX;
-    posY += velY;
+    let posX = Math.random() * (bodyWidth - 80);
+    let posY = Math.random() * (bodyHeight - 80);
 
-    if (posX <= 0 || posX >= bodyWidth - 80) velX *= -1;
-    if (posY <= 0 || posY >= bodyHeight - 80) velY *= -1;
+    let speed = 4;
+    let angle = Math.random() * Math.PI * 2;
+    let velX = Math.cos(angle) * speed;
+    let velY = Math.sin(angle) * speed;
 
-    velX += (Math.random() - 0.5) * 0.4;
-    velY += (Math.random() - 0.5) * 0.4;
+    function moveBug() {
+      posX += velX;
+      posY += velY;
 
-    velX = Math.max(Math.min(velX, 5), -5);
-    velY = Math.max(Math.min(velY, 5), -5);
+      if (posX <= 0 || posX >= bodyWidth - 80) velX *= -1;
+      if (posY <= 0 || posY >= bodyHeight - 80) velY *= -1;
 
-    bug.style.left = posX + 'px';
-    bug.style.top = posY + 'px';
-    const lamp = document.getElementById('lampWrapper');
+      velX += (Math.random() - 0.5) * 0.4;
+      velY += (Math.random() - 0.5) * 0.4;
+      velX = Math.max(Math.min(velX, 5), -5);
+      velY = Math.max(Math.min(velY, 5), -5);
 
-if (isColliding(bug, lamp)) {
-    bug.style.display = "none";   // make bug disappear
-    return;                       // stop animation
-}
+      bug.style.left = posX + "px";
+      bug.style.top = posY + "px";
 
-    requestAnimationFrame(moveBug);
+      const lamp = document.getElementById("lampWrapper");
+
+      // -------------------------
+      // ZAP LOGIC (correct place)
+      // -------------------------
+      if (isColliding(bug, lamp)) {
+        bug.remove();
+
+        bugsZapped++;
+        console.log("Zapped:", bugsZapped);
+
+        if (bugsZapped >= maxZaps) {
+          endGame();
+        }
+
+        return;
+      }
+
+      requestAnimationFrame(moveBug);
+    }
+
+    moveBug();
   }
 
-  
-  
-  moveBug();
- 
   function isColliding(a, b) {
-  const rect1 = a.getBoundingClientRect();
-  const rect2 = b.getBoundingClientRect();
+    const r1 = a.getBoundingClientRect();
+    const r2 = b.getBoundingClientRect();
 
-  return !(
-    rect1.right < rect2.left ||
-    rect1.left > rect2.right ||
-    rect1.bottom < rect2.top ||
-    rect1.top > rect2.bottom
-  );
-}
+    return !(r1.right < r2.left ||
+             r1.left > r2.right ||
+             r1.bottom < r2.top ||
+             r1.top > r2.bottom);
+  }
 
+  // spawn 5 bugs at the start
+  for (let i = 0; i < 5; i++) {
+    createBug();
+  }
+
+  // spawn bugs continuously
+  spawnInterval = setInterval(createBug, 1000);
+
+  // -------------------------
+  // END GAME FUNCTION
+  // -------------------------
+  function endGame() {
+    clearInterval(spawnInterval);
+    console.log("Game Over, redirecting...");
+    window.location.href = "buggameover.html";
+  }
 };
 
-$(function() {
-    let isDragging = false;
-    let offsetX, offsetY;
 
-    $("#lampWrapper").on("mousedown", function(e) {
-        isDragging = true;
-        offsetX = e.clientX - $(this).position().left;
-        offsetY = e.clientY - $(this).position().top;
-        $(this).css("cursor", "grabbing");
-    });
 
-    $(document).on("mousemove", function(e) {
-        if (isDragging) {
-            $("#lampWrapper").css({
-                left: e.clientX - offsetX,
-                top: e.clientY - offsetY
-            });
-        }
-    });
+// the lamp code
+$(function () {
+  let isDragging = false;
+  let offsetX, offsetY;
 
-    $(document).on("mouseup", function() {
-        isDragging = false;
-        $("#lampWrapper").css("cursor", "grab");
-    });
+  $("#lampWrapper").on("mousedown", function (e) {
+    isDragging = true;
+    offsetX = e.clientX - $(this).position().left;
+    offsetY = e.clientY - $(this).position().top;
+    $(this).css("cursor", "grabbing");
+  });
 
+  $(document).on("mousemove", function (e) {
+    if (isDragging) {
+      $("#lampWrapper").css({
+        left: e.clientX - offsetX,
+        top: e.clientY - offsetY
+      });
+    }
+  });
+
+  $(document).on("mouseup", function () {
+    isDragging = false;
+    $("#lampWrapper").css("cursor", "grab");
+  });
 });
-
-
