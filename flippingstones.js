@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+const rocks = document.querySelectorAll(".rock");
 
-<h1>Find the Hidden Key under rocks!</h1>
+rocks.forEach(rock => {
+    rock.addEventListener("click", () => {
 
-<div id="game">
-    <div class="rock" data-state="unflipped"></div>
-    <div class="rock" data-state="unflipped"></div>
-    <div class="rock" data-state="unflipped"></div>
-    <div class="rock" data-state="unflipped"></div>
-    <div class="rock" data-state="unflipped"></div>
-</div>
+        rock.style.opacity = "0";     // fades the rock out
+        rock.style.pointerEvents = "none"; 
 
-<script src="script.js"></script>
-</body>
-</html>
+        
+    });
+
+});
+
