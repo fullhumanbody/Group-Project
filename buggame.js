@@ -77,6 +77,10 @@ window.onload = function () {
   // spawn bugs continuously
   spawnInterval = setInterval(createBug, 1000);
 
+  function endGame() {
+  window.location.href = "tadabug.html";  
+}
+  
 };
 
 
@@ -107,6 +111,7 @@ $(function () {
     $("#lampWrapper").css("cursor", "grab");
   });
 });
+
 
 
 
