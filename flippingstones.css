@@ -19,7 +19,7 @@ h2 {
 
 
 .rock1 {
-    position: absolute;   /* <-- THIS is what you're missing */
+    position: absolute;   
     width: 200px;
     height: 100px;
     top: 90%;
