@@ -1,0 +1,367 @@
+/* Integrated Pages' CSS */
+
+
+#pageTitle {
+    text-align: center;
+    text-decoration: underline;
+}
+
+#pageTitle, .page1, .page2, .page3, .page4, .page5 {
+  display: none;
+}
+
+.spotlight-container {
+  cursor: none;
+  --cursorX: 50%;
+  --cursorY: 50%;
+  width: 100vw; 
+  height: 100vh;
+  position: relative;
+}
+
+.spotlight-container:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed; 
+  pointer-events: none;
+  background: radial-gradient(
+    circle 10vmax at var(--cursorX) var(--cursorY),
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,.5) 80%,
+    rgba(0,0,0,.95) 100%
+  );
+  z-index: 999; 
+}
+
+/* Background for Page 0 */
+.page0Body {
+  background-image: url('lamp-thegame.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+
+/* Bug Game CSS */
+.page1body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #111;
+  background-image: url('night-glow.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#page1lampWrapper {
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    cursor: grab;
+} 
+
+
+#page1handLamp {
+    width: 200px; 
+    user-select: none; 
+    pointer-events: none; 
+}
+
+#page1handLamp {
+  width: 200px; 
+  height: auto;
+}
+
+.page1bug {
+  width: 80px;
+  height: 80px;
+  background-image: url("bug.png");
+  background-size: cover;    
+  background-position: center; 
+  background-repeat: no-repeat;
+  position: absolute;
+  pointer-events: none;
+}
+
+#page1counter {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+
+/* Background for Page 2 */
+.page2body {
+  background-image: url('forest-deer.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.page2h1,.page2p {
+   text-align: center; display: flex; justify-content: center;
+   color: white;
+}
+
+ .page2winCup {
+  display: flex;
+  justify-content: center;
+ }
+
+
+
+/* Background for Page 3 */
+.page3bushImages {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.page3bushImages img {
+  width: 70%; /* Adjust as needed */
+  height: auto;
+}
+
+
+.page3body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #111; 
+  background-image: url('forest-deer.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+#page3lampWrapper {
+    position: absolute;
+    left: 200px;
+    top: 300px;
+    cursor: grab;
+} 
+/* grab div instead of just the image because it can be modified more easily */
+
+#page3handLamp {
+    width: 200px; 
+    user-select: none; 
+    pointer-events: none; 
+}
+
+.w3-animate-fadingAway{animation:fading 5s }@keyframes fading{100%{opacity:0}50%{opacity:0}0%{opacity:0}}
+
+/* Background for Page 4 */
+
+.page4body {
+  background-image: url('flower-field.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.page4plants {
+    position: relative;   
+    width: 100%;
+    height: 600px;        
+}
+
+.page4p1 { top: 300px; left: 180px; }
+.page4p2 { top: 350px; left: 450px; }
+.page4p3 { top: 330px; left: 900px; }
+.page4p4 { top: 220px; left: 1200px; }
+.page4p5 { top: 250px; left: 1300px; }
+
+
+.page4plant-pos {
+    position: absolute;
+    display: inline-block;
+    pointer-events: none;       
+}
+
+
+.page4plant-pos img {
+    pointer-events: auto;       
+    transform-origin: bottom center; 
+    height: 200px;             
+}
+
+.page4p1 img {
+    height: 150px; 
+}
+
+.page4p2 img {
+    height: 500px;
+}
+
+.page4p3 img {
+    height: 300px; 
+}
+
+.page4p4 img {
+    height: 150px; 
+}
+
+.page4p5 img {
+    height: 700px;
+}
+
+
+/* Background for Flipping Stones Page */
+
+.page5body {
+    font-family: sans-serif;
+    text-align: center;
+
+    background-image: url("flower-field.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.page5h2 {
+    color: white;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 40px;
+}
+
+
+.page5rock1 {
+    position: absolute;   /* <-- THIS is what you're missing */
+    width: 200px;
+    height: 100px;
+    top: 90%;
+    left: 10px;
+    transition: opacity 0.4s ease;
+     z-index: 999;
+}
+.page5rock2 {
+    height: 100px;
+    width: 190px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+
+}
+
+.page5rock3 {
+    width: 100px;
+    height: 50px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 90%;
+    left: 27%;
+
+}
+
+.page5rock4 {
+     width: 140px;
+    height: 80px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 90%;
+    left: 60%;
+    
+}
+
+.page5rock5 {
+     width: 40px;
+    height: 20px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 45%;
+    left: 40%;
+   
+}
+.page5rock6 {
+     width: 70px;
+    height: 40px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 60%;
+    left: 40%;
+   
+}
+
+.page5rock7 {
+     width: 150px;
+    height: 80px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 80%;
+    left: 80%;
+   
+}
+.page5rock8 {
+     width: 60px;
+    height: 30px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 60%;
+    left: 70%;
+   
+}
+.page5rock.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  
+}
+
+.page5hidden-item {
+    width: 5%;
+    height: 5%;
+    position: absolute;
+    top: 92%;
+    left: 8%;
+    z-index: 5;
+}
+
+/* Flipping Stones win page */
+
+.page6body {
+  background-image: url("flower-field.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.page6h1,.page5p {
+   text-align: center; display: flex; justify-content: center;
+   color: white;
+}
+
+ .page6winCup {
+  display: flex;
+  justify-content: center;
+ }
+
+ .page6button {
+    padding: 50px;
+ }

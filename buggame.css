@@ -1,0 +1,55 @@
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #111; 
+}
+
+#lampWrapper {
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    cursor: grab;
+} 
+
+
+#handLamp {
+    width: 200px; 
+    user-select: none; 
+    pointer-events: none; 
+}
+
+#handLamp {
+  width: 200px; 
+  height: auto;
+}
+
+.bug {
+  width: 80px;
+  height: 80px;
+  background-image: url("bug.png");
+  background-size: cover;    
+  background-position: center; 
+  background-repeat: no-repeat;
+  position: absolute;
+  pointer-events: none;
+}
+
+#counter {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+
+

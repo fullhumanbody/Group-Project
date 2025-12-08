@@ -1,0 +1,65 @@
+/* animal-highlight.css */
+/* stole this root stuff from Liv. Thanks Liv :.)! */
+:root {
+    cursor: none;
+    --cursorX: 50vw;
+    --cursorY: 50vh;
+  }
+  :root:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    pointer-events: none;
+    background: radial-gradient(
+      circle 10vmax at var(--cursorX) var(--cursorY),
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.5) 80%,
+      rgba(0,0,0,.95) 100%
+    )
+  }
+
+
+.bushImages {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.bushImages img {
+  width: 70%; /* Adjust as needed */
+  height: auto;
+}
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #111; 
+  background-image: url('forest-deer.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+#lampWrapper {
+    position: absolute;
+    left: 200px;
+    top: 300px;
+    cursor: grab;
+} 
+/* grab div instead of just the image because it can be modified more easily */
+
+#handLamp {
+    width: 200px; 
+    user-select: none; 
+    pointer-events: none; 
+}
+
+.w3-animate-fadingAway{animation:fading 5s }@keyframes fading{100%{opacity:0}50%{opacity:0}0%{opacity:0}}

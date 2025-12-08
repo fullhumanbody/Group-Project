@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <!-- All techy stuff goes here, inside HEAD -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Overall title of your page -->
+    <title>Find The Creature</title>
+    <!-- Link to external CSS file -->
+      <link rel="stylesheet" href="animal-highlight.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css"> 
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Link to external JavaScript file -->
+    <script src="animal-highlight.js" defer></script>
+
+
+</head>
+    
+<body>
+    
+    <a href="tada.html">
+        <button>CREATURE FOUND!</button>
+    </a>
+
+    <div class="bushImages">
+      <img id="bush1" src="bush-manzanitabug.png" onmouseover="playSoundLadybug(),foundBush1()" style="width:250px;height:200px;"/>
+      <img id="bush2" src="bush-coyotedog.png" onmouseover="playSoundCoyote(),foundBush1()"  style="width:250px;height:200px;"/>
+      <img id="bush3" src="bush-zorro.png" onmouseover="playSoundBush(),foundBush1()" style="width:250px;height:200px;"/>
+    </div>
+    <!--Sound's creditted in links(becuz we aren't animals)-->
+    <audio id="coyoteSound" src="Coyote.mp3"></audio>
+    <!-- https://www.youtube.com/shorts/_B6ykKbFl2g --->
+    <audio id="ladybugSound" src="ladybug.m4a"></audio>
+    <!-- https://www.youtube.com/watch?v=_aBGa176U8s -->
+     <audio id="bushSound" src="bush.mp3"></audio>
+    <!-- https://www.youtube.com/watch?v=gla8pkGYObQ -->
+
+    <div id="winText" style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:200px; color:white; display: none;">
+        <h2>Congratulations!</h2>
+      <p>You found all the creatures!<br> And rustled through an empty bush?.. <br> You're so funny haha! <br> Onto the next adventure!</p>
+      <button onclick="location.href='tada.html'">Next!</button>
+    </div>
+  
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="handcode.js"></script>
+
+
+</body>
+
+</html>

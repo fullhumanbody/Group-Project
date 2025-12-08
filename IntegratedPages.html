@@ -1,0 +1,719 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+
+    <head>
+        <title>Hide 'n Show</title>
+        <link rel="stylesheet" href="IntegratedPages.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    </head>
+
+    <body class="spotlight-container page0Body",>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------>
+        
+
+        <div class="page0"> <!-- Page 0 content ###################################################################################------------>
+            <button onclick="showpage()">Pretend I'm the start button</button>
+        </div> <!-- End of Page 0 content #######################################################################################################-->
+
+        <div class="page1"> <!-- Page 1 content ###################################################################################------------>
+          <div id="page1lampWrapper">
+          <img id="page1handLamp" src="lamp-temp-glow.png" />
+          </div>
+          <div class="page1banner"></div>
+          <div id="page1counter">Catch some bugs!</div>
+
+        </div> <!-- End of Page 1 content #######################################################################################################-->
+        <div class="page2">
+          <!-- Main content goes here, inside BODY -->
+          <h1 class="page2h1">YOU CAUGHT 30 BUGS!</h1>
+          <p class="page2p"> Good stuff! <br> Claim your Trophy and go look for some creatures!</p>
+
+          <br>
+          <div class="page2winCup">
+            <a onclick="showpage()">
+            <img class="page2winCup" src="trophyCup.gif" alt="trophy cup hovers on screen" width=100% height=100%>
+            </a>
+          </div>
+        </div>
+        <div class="page3">
+        
+          
+    <div class="page3bushImages">
+      <img id="page3bush1" src="bush-manzanitabug.png" onmouseover="playSoundLadybug(),foundBush1()" style="width:250px;height:200px;"/>
+      <img id="page3bush2" src="bush-coyotedog.png" onmouseover="playSoundCoyote(),foundBush1()"  style="width:250px;height:200px;"/>
+      <img id="page3bush3" src="bush-zorro.png" onmouseover="playSoundBush(),foundBush1()" style="width:250px;height:200px;"/>
+    </div>
+    <!--Sound's creditted in links(becuz we aren't animals)-->
+    <audio id="page3coyoteSound" src="Coyote.mp3"></audio>
+    <!-- https://www.youtube.com/shorts/_B6ykKbFl2g --->
+    <audio id="page3ladybugSound" src="ladybug.m4a"></audio>
+    <!-- https://www.youtube.com/watch?v=_aBGa176U8s -->
+     <audio id="page3bushSound" src="bush.mp3"></audio>
+    <!-- https://www.youtube.com/watch?v=gla8pkGYObQ -->
+
+    <div id="page3winText" style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:200px; color:white; display: none;">
+        <h2>Congratulations!</h2>
+      <p>You found all the creatures!<br> And rustled through an empty bush?.. <br> You're so funny haha! <br> Onto the next adventure! <br> in about ~10 seconds</p>
+
+    </div>
+
+        </div>
+        <div class="page4">
+            <div class="page4plants">
+              <div class="page4plant-pos page4p1">
+                  <img id="page4plant1" src="plant1_1.png" alt="Plant">
+              </div>
+              <div class="page4plant-pos page4p2">
+                  <img id="page4plant2" src="plant1_1.png" alt="Plant">
+              </div>
+              <div class="page4plant-pos page4p3">
+                  <img id="page4plant3" src="plant1_1.png" alt="Plant">
+              </div>
+              <div class="page4plant-pos page4p4">
+                  <img id="page4plant4" src="plant1_1.png" alt="Plant">
+              </div>
+              <div class="page4plant-pos page4p5">
+                  <img id="page4plant5" src="plant1_1.png" alt="Plant">
+              </div>
+            </div>
+            <h5> Hover your mouse on the flowers to make them grow! </h5>
+            <button onclick="showpage()">Head to the next adventure!</button>
+        </div>
+        <div class="page5">
+          <h2>Find the Hidden Key to unlock this Door!</h2> 
+          <div id="page5game">
+               <div id="page5rock">
+              <img src="rock.png" class="page5rock1"> 
+              <img src="rock.png" class="page5rock2"> 
+              <img src="rock.png" class="page5rock3"> 
+              <img src="rock.png" class="page5rock4"> 
+              <img src="rock.png" class="page5rock5"> 
+              <img src="rock.png" class="page5rock6"> 
+              <img src="rock.png" class="page5rock7"> 
+              <img src="rock.png" class="page5rock8"> 
+              
+              
+          </div>
+    </div>
+
+        <img src="door.png" class="page5door-closed"
+        style="width:12%;height:40%;">
+        
+        <a onclick="showpage()"> <img src="key.png"
+        alt="secret-door" style="width: 5%;height: 5%; position: absolute; top: 92%;left: 8%;z-index: 5;"
+        class="page5hidden-item"></a>
+
+          <div id="page5game"></div> 
+          <p id="message"></p> 
+        </div>
+        <div class="page6">
+            
+   <h1 class="page6h1">Key is found, and Door is unlocked!</h1>
+<p class="page6p">Congrats! 
+<br> Claim your Trophy, and Thank you for Playing! </br> 
+End of Game.</p>
+
+  
+   <button class="page6button" onclick="trappedlol()"> Go Back to Main Menu?</button>
+   </a>
+
+
+ <br>
+
+ <div class="page6winCup">
+   <img class="page6winCup" src="trophyCup.gif" alt="trophy cup hovers on screen" width=100% height=100%>
+   </a>
+ </div>
+        </div>
+        <div class="page7">
+            This is page 7 test test
+        </div>
+        <div class="page8">
+            This is page 8 test test
+        </div>
+        <div class="page9">
+            This is page 9 test test
+        </div>
+        <div class="page10">
+            This is page 10 test test
+        </div>
+        <div class="page11">
+            This is page 11 test test
+        </div>
+        <div class="page12">
+            This is page 12 test test
+        </div>
+        <div class="page13">
+            This is page 13 test test
+        </div>
+        <div class="page14">
+            This is page 14 test test
+        </div>
+
+
+
+
+
+
+    <!------------------------------------------------------------------------------------------------------------------------------------>
+    </body>
+
+
+
+
+<script>
+
+
+function trappedlol() {
+    alert("lol vic didnt finish so you're trapped here moohoohaha. or you can go back a single page and escape.");
+}
+
+
+function livFlowers() {
+
+    var plantImages = [
+        "plant1_2.png",
+        "plant1_3.png",
+        "plant1_4.png",
+        "plant1_5.png"
+    ];
+
+    plantImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    $(".page4plant-pos img").each(function () {
+
+        let hoverInt = null;
+        let stopTimer = null;
+        let index = 0;
+
+        $(this).hover(
+            function () {
+                const img = $(this);
+                clearInterval(hoverInt);
+                clearTimeout(stopTimer);
+                index = 0;
+
+                hoverInt = setInterval(() => {
+                    index = (index + 1) % plantImages.length;
+                    img.attr("src", plantImages[index]);
+                }, 2000);
+
+                stopTimer = setTimeout(() => {
+                    clearInterval(hoverInt);
+                }, 10000);
+            },
+
+            function () {
+                clearInterval(hoverInt);
+                clearTimeout(stopTimer);
+            }
+        );
+
+    });
+
+};
+
+
+// Crazy Bug Game Code Below  ########################################################################################################################################
+let bugsZapped = 0;
+let maxZaps = 30;
+let spawnInterval;  // store interval so we can stop spawning bugs
+let bugEnd = true;
+
+function properEndGame() {
+  clearInterval(spawnInterval);
+  if (bugEnd === true) {
+    alert("Congratulations, you have zapped 30 bugs!");
+    showpage();
+    bugEnd = false;
+  } else {
+    bugEnd = false;
+}
+}
+
+  function createBug() {
+    const bug = document.createElement("div");
+    bug.className = "page1bug";         
+    document.body.appendChild(bug);
+
+    const bodyWidth = window.innerWidth;
+    const bodyHeight = window.innerHeight;
+
+    let posX = Math.random() * (bodyWidth - 80);
+    let posY = Math.random() * (bodyHeight - 80);
+
+    let speed = 4;
+    let angle = Math.random() * Math.PI * 2;
+    let velX = Math.cos(angle) * speed;
+    let velY = Math.sin(angle) * speed;
+
+    function moveBug() {
+      posX += velX;
+      posY += velY;
+
+      if (posX <= 0 || posX >= bodyWidth - 80) velX *= -1;
+      if (posY <= 0 || posY >= bodyHeight - 80) velY *= -1;
+
+      velX += (Math.random() - 0.5) * 0.4;
+      velY += (Math.random() - 0.5) * 0.4;
+      velX = Math.max(Math.min(velX, 5), -5);
+      velY = Math.max(Math.min(velY, 5), -5);
+
+      bug.style.left = posX + "px";
+      bug.style.top = posY + "px";
+
+      const lamp = document.getElementById("page1lampWrapper");
+
+      
+      // zap counter
+   
+   if (isColliding(bug, lamp)) {
+  bug.remove();
+
+  bugsZapped++;
+  document.getElementById("page1counter").textContent = "Bugs caught: " + bugsZapped;
+
+  if (bugsZapped >= maxZaps) {
+    endGame();
+  }
+
+        return;
+      }
+
+      requestAnimationFrame(moveBug);
+    }
+
+    moveBug();
+  }
+
+
+
+
+    function isColliding(a, b) {
+    const r1 = a.getBoundingClientRect();
+    const r2 = b.getBoundingClientRect();
+
+    return !(r1.right < r2.left ||
+             r1.left > r2.right ||
+             r1.bottom < r2.top ||
+             r1.top > r2.bottom);
+  }
+
+  function endGame() {
+  clearInterval(spawnInterval);
+  properEndGame();
+  bugEnd = false;
+
+}
+
+window.onload = function () {
+
+
+  // spawn 1 bugs at the start
+  for (let i = 0; i < 1; i++) {
+    createBug();
+  }
+
+  // spawn bugs continuously
+  //spawnInterval = setInterval(createBug, 1000);
+
+  
+};
+
+
+
+
+
+// the lamp code
+$(function () {
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  $("#page1lampWrapper").on("mousedown", function (e) {
+    isDragging = true;
+    offsetX = e.clientX - $(this).position().left;
+    offsetY = e.clientY - $(this).position().top;
+    $(this).css("cursor", "grabbing");
+  });
+
+  $(document).on("mousemove", function (e) {
+    if (isDragging) {
+      $("#page1lampWrapper").css({
+        left: e.clientX - offsetX,
+        top: e.clientY - offsetY
+      });
+    }
+  });
+
+  $(document).on("mouseup", function () {
+    isDragging = false;
+    $("#page1lampWrapper").css("cursor", "grab");
+  });
+});
+
+
+
+function removeDivsByClass(className) {
+    // 1. Select all elements that match the class name.
+    // document.querySelectorAll() returns a NodeList of all matching elements.
+    const elementsToRemove = document.querySelectorAll(`div.${className}`);
+
+    // 2. Iterate through the NodeList and remove each element.
+    // A for...of loop or Array.from().forEach() works well for NodeLists.
+    elementsToRemove.forEach(element => {
+        // The element must be removed from its parent node.
+        if (element.parentNode) {
+            element.parentNode.removeChild(element);
+        }
+        // Alternatively, the more modern and concise way:
+        // element.remove(); 
+    });
+}
+
+var bush1Found = false;
+var bush2Found = false;
+var bush3Found = false;
+
+function foundBush1() {
+    //bush1Found = true;
+
+if (bush1Found === true) {
+    console.log("Bush 1 is found");
+    bush1Found = true;
+}
+if (bush2Found === true) {
+    console.log("Bush 2 is found");
+    bush2Found = true;
+}
+if (bush3Found === true) {
+    console.log("Bush 3 is found");
+    bush3Found = true;
+}
+
+if (bush1Found === true && bush2Found === true && bush3Found === true) {
+    console.log("You found all the animals!");
+    checkWinCondition();
+}
+
+}
+
+var sound = document.getElementById('page3coyoteSound');
+var coyoteBush = document.getElementById("page3bush2");
+function playSoundCoyote() {
+
+  if (bush2Found === false) {
+    bush2Found = true;
+    // Check if the sound is already playing
+    if (sound.paused) {
+        // Start the sound from the beginning
+        sound.currentTime = 0;
+        sound.play();
+        coyoteBush.classList.add("w3-animate-fadingAway");
+        setTimeout(() => {
+          coyoteBush.style.visibility = "hidden";
+          coyoteBush.classList.remove("w3-animate-fadingAway");
+        }, 4800); // 10000 milliseconds = 10 seconds
+    }
+  }
+}
+
+
+var bugsound = document.getElementById('page3ladybugSound');
+var ladybugBush = document.getElementById("page3bush1");
+function playSoundLadybug() {
+
+  if (bush1Found === false) {
+    bush1Found = true;
+    // Check if the sound is already playing
+    if (bugsound.paused) {
+        // Start the sound from the beginning
+        bugsound.currentTime = 0;
+        bugsound.play();
+        ladybugBush.classList.add("w3-animate-fadingAway");
+        setTimeout(() => {
+          ladybugBush.style.visibility = "hidden";
+          ladybugBush.classList.remove("w3-animate-fadingAway");
+        }, 4800); // 10000 milliseconds = 10 seconds
+    }
+  }
+}
+
+var Bushsound = document.getElementById('page3bushSound');
+var bushBush = document.getElementById("page3bush3");
+function playSoundBush() {
+
+  if (bush3Found === false) {
+    bush3Found = true;
+    // Check if the sound is already playing
+    if (Bushsound.paused) {
+        // Start the sound from the beginning
+        Bushsound.currentTime = 0;
+        Bushsound.play();
+        bushBush.classList.add("w3-animate-fadingAway");
+        setTimeout(() => {
+          bushBush.style.visibility = "hidden";
+          bushBush.classList.remove("w3-animate-fadingAway");
+        }, 4800); // 10000 milliseconds = 10 seconds
+    }
+  }
+}
+
+var winText = document.getElementById('page3winText');
+var dingdong = false;
+function checkWinCondition() {
+  if (bush1Found === true && bush2Found === true && bush3Found === true) {
+    if (dingdong === false) {
+      dingdong = true;
+      console.log("You found all the animals HURAYYY!!!!");
+      // Display win message or trigger win event here
+      winText.style.display = "block";
+      console.log("Timer will now comence for next page");
+      setTimeout(() => {
+        console.log("Oh boy here we gooooo");
+        playerReward = 3;
+        showpage();
+        }, 11000); // 10000 milliseconds = 10 seconds
+      }
+  }
+}
+
+
+// dont touch this code but i think its important
+function update(e){
+    var x = e.clientX || e.touches[0].clientX
+    var y = e.clientY || e.touches[0].clientY
+  
+    document.documentElement.style.setProperty('--cursorX', x + 'px')
+    document.documentElement.style.setProperty('--cursorY', y + 'px')
+  }
+  
+  document.addEventListener('mousemove',update)
+  document.addEventListener('touchmove',update)
+
+
+
+
+
+
+
+
+
+
+const rocks = document.getElementById('page5rock').children;
+
+for (let i = 0; i < rocks.length; i++) {
+    const rock = rocks[i]
+    rock.addEventListener("click", () => {
+        rock.style.opacity = "0";
+        rock.style.pointerEvents = "none";
+    });
+
+    rock.addEventListener("transitionend", () => {
+        const style = getComputedStyle(rock);
+        if (style.zIndex > 0) {
+            message.textContent ="YOU WIN! The door is Unlocked!";
+            message.style.color = "gold";
+            enableKeyDragging();
+        }
+    });
+    
+}
+
+
+// ----------------------
+// Door unlock logic
+// ----------------------
+    function checkUnlock() {
+        const keyRect = key.getBoundingClientRect();
+        const doorRect = door.getBoundingClientRect();
+
+        const overlap =
+            keyRect.left < doorRect.right &&
+            keyRect.right > doorRect.left &&
+            keyRect.top < doorRect.bottom &&
+            keyRect.bottom > doorRect.top;
+
+    if (overlap) {
+        unlockDoor();
+    }
+}
+
+    function unlockDoor() {
+        
+       
+        
+        
+        gameEnded = true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//if (playerReward === 0){
+
+  const spotlightContainer = document.querySelector('.spotlight-container');
+
+  spotlightContainer.addEventListener('mousemove', (e) => {
+      spotlightContainer.style.setProperty('--cursorX', `${e.clientX}px`);
+      spotlightContainer.style.setProperty('--cursorY', `${e.clientY}px`);
+  });
+//}
+
+
+
+
+
+
+    var page0 = document.getElementsByClassName("page0");
+    page0 = page0[0];
+    var page1 = document.getElementsByClassName("page1");
+    page1 = page1[0];
+    var page2 = document.getElementsByClassName("page2");
+    page2 = page2[0];
+    var page3 = document.getElementsByClassName("page3");
+    page3 = page3[0];
+    var page4 = document.getElementsByClassName("page4");
+    page4 = page4[0];
+    var page5 = document.getElementsByClassName("page5");
+    page5 = page5[0];
+    var page6 = document.getElementsByClassName("page6");
+    page6 = page6[0];
+    var page7 = document.getElementsByClassName("page7");
+    page7 = page7[0];
+    var page8 = document.getElementsByClassName("page8");
+    page8 = page8[0];
+    var page9 = document.getElementsByClassName("page9");
+    page9 = page9[0];
+    var page10 = document.getElementsByClassName("page10");
+    page10 = page10[0];
+    var page11 = document.getElementsByClassName("page11");
+    page11 = page11[0];
+    var page12 = document.getElementsByClassName("page12");
+    page12 = page12[0];
+    var page13 = document.getElementsByClassName("page13");
+    page13 = page13[0];
+    var page14 = document.getElementsByClassName("page14");
+    page14 = page14[0];
+    console.log("The page works");
+
+
+let playerReward = 0;
+if (typeof playerReward !== 'undefined') {
+    console.log("playerReward exists with value: " + playerReward);
+} else {
+    console.log("playerReward does not exist");
+}
+
+page1.style.display = "none";
+page2.style.display = "none";
+page3.style.display = "none";
+page4.style.display = "none";
+page5.style.display = "none";
+page6.style.display = "none";
+page7.style.display = "none";
+page8.style.display = "none";
+page9.style.display = "none";
+page10.style.display = "none";
+page11.style.display = "none";
+page12.style.display = "none";
+page13.style.display = "none";
+page14.style.display = "none";
+
+function showpage() {
+    console.log("showpageTest function called");
+    playerReward = playerReward + 1;
+
+        console.log("playerReward is now: " + playerReward);
+        if (playerReward === 1) {
+            page1.style.display = "block";
+            page0.style.display = "none";
+            document.body.classList.remove("spotlight-container","page0Body");
+            document.body.classList.add("page1body");
+            spawnInterval = setInterval(createBug, 500);
+        } else if (playerReward === 2 && bugsZapped >= maxZaps) {
+            playerReward = 2;
+            console.log("Switching to page 2");
+            page2.style.display = "block";
+            page1.style.display = "none";
+            document.body.classList.remove("page1Body");
+            document.body.classList.add("page2Body");
+            removeDivsByClass('page1bug');
+        } else if (playerReward === 3) {
+            page3.style.display = "block";
+            page2.style.display = "none";
+            document.body.classList.remove("page2Body");
+            document.body.classList.add("spotlight-container","page3Body");
+        } else if (playerReward === 4) {
+            alert("Wow you really found those animals! And the one bush! George Bush?");
+            page4.style.display = "block";
+            page3.style.display = "none";
+            document.body.classList.remove("spotlight-container","page3Body");
+            document.body.classList.add("page4Body");
+            livFlowers()
+        } else if (playerReward === 5) {
+            page4.style.display = "none";
+            page5.style.display = "block";
+            document.body.classList.remove("page4Body");
+            document.body.classList.add("page5body");
+        } else if (playerReward === 6) {
+            page5.style.display = "none";
+            page6.style.display = "block";
+            document.body.classList.remove("page5body");
+            document.body.classList.add("page6body");
+
+        } else if (playerReward === 7) {
+            page6.style.display = "none";
+            page7.style.display = "block";
+        } else if (playerReward === 8) {
+            page7.style.display = "none";
+            page8.style.display = "block";
+        } else if (playerReward === 9) {
+            page8.style.display = "none";
+            page9.style.display = "block";
+        } else if (playerReward === 10) {
+            page9.style.display = "none";
+            page10.style.display = "block";
+        } else if (playerReward === 11) {
+            page10.style.display = "none";
+            page11.style.display = "block";
+        } else if (playerReward === 12) {
+            page11.style.display = "none";
+            page12.style.display = "block";
+        } else if (playerReward === 13) {
+            page12.style.display = "none";
+            page13.style.display = "block";
+        } else if (playerReward === 14) {
+            page13.style.display = "none";
+            page14.style.display = "block";
+        } else {
+            console.log("No valid reward");
+        }
+
+}
+
+
+
+
+
+</script>
+
+
+</html>
+
+
