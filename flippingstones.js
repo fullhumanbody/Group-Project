@@ -1,4 +1,4 @@
-const rocks = document.querySelectorAll(".rock");
+const rocks = document.getElementById('rock').childNodes;
 
 rocks.forEach(rock => {
     rock.addEventListener("click", () => {
@@ -10,4 +10,3 @@ rocks.forEach(rock => {
     });
 
 });
-
