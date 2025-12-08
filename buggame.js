@@ -37,9 +37,9 @@ window.onload = function () {
 
       const lamp = document.getElementById("lampWrapper");
 
-      // -------------------------
-      // ZAP LOGIC (correct place)
-      // -------------------------
+      
+      // zap counter
+   
       if (isColliding(bug, lamp)) {
         bug.remove();
 
@@ -107,4 +107,5 @@ $(function () {
     $("#lampWrapper").css("cursor", "grab");
   });
 });
+
 
