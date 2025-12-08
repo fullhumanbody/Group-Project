@@ -19,7 +19,7 @@ h2 {
 
 
 .rock1 {
-    position: absolute;   
+    position: absolute;   /* <-- THIS is what you're missing */
     width: 200px;
     height: 100px;
     top: 90%;
@@ -82,4 +82,17 @@ h2 {
     top: 92%;
     left: 8%;
     z-index: 5;
+}
+
+
+
+.door-closed {  
+    position: absolute;
+    width: 100px;      /* adjust as needed */
+    bottom: 40%;      /* position on screen */
+    left: 40%;
+    transform: translateX(50%);
+    cursor: pointer;
+    transition: opacity 2%;
+    z-index: 999;
 }
