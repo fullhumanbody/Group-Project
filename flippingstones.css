@@ -10,38 +10,76 @@ body {
     padding: 0;
 }
 
-h1 {
+h2 {
     color: white;
-    text-shadow: 2px 2px 4px black;
-    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 40px;
 }
 
-.rock {
-    width: 150px;
-    height: 150px;
 
-    background-image: url("exercises/images/rock.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    cursor: pointer;
-
+.rock1 {
+    position: absolute;   /* <-- THIS is what you're missing */
+    width: 200px;
+    height: 100px;
+    top: 90%;
+    left: 10px;
+    transition: opacity 0.4s ease;
+     z-index: 999;
+}
+.rock2 {
+    width: 180px;
+    height: 80px;
     /* fade out effect */
     transition: opacity 0.4s ease;
-    position: relative;  
+    position: absolute;
+    top: 80%;
+    left: 30%;
+
+}
+
+.rock3 {
+     width: 100px;
+    height: 50px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+
+}
+
+.rock4 {
+     width: 200px;
+    height: 100px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 80%;
+    left: 70%;
+}
+
+.rock5 {
+     width: 90px;
+    height: 40px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 55%;
+    left: 30%;
 }
 
 .rock.hidden {
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.4s ease;
 }
 
 .hidden-item {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    width: 5%;
+    height: 5%;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 92%;
+    left: 8%;
+    z-index: 5;
 }
