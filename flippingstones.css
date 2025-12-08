@@ -118,5 +118,22 @@ h2 {
 }
 
 
+#lampWrapper {
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    cursor: grab;
+} 
+
+#handLamp {
+    width: 200px; 
+    user-select: none; 
+    pointer-events: none; 
+}
+
+#handLamp {
+  width: 200px; 
+  height: auto;
+}
 
   
