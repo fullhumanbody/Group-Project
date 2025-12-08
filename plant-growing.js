@@ -1,8 +1,8 @@
-// light up plants and make them grow AND hovering over certain plants makes them grow 
-
+// light up plants and make them grow ONLY when lamp overlaps them
 
 $(document).ready(function () {
 
+    // assests
     var plantImages = [
         "plant1_2.png",
         "plant1_3.png",
@@ -10,43 +10,73 @@ $(document).ready(function () {
         "plant1_5.png"
     ];
 
+    
     plantImages.forEach(src => {
         const img = new Image();
         img.src = src;
     });
 
+    // ----- TRACK EACH PLANT'S TIMERS -----
     $(".plant-pos img").each(function () {
-
-        let hoverInt = null;
-        let stopTimer = null;
-        let index = 0;
-
-        $(this).hover(
-            function () {
-                const img = $(this);
-                clearInterval(hoverInt);
-                clearTimeout(stopTimer);
-                index = 0;
-
-                hoverInt = setInterval(() => {
-                    index = (index + 1) % plantImages.length;
-                    img.attr("src", plantImages[index]);
-                }, 2000);
-
-                stopTimer = setTimeout(() => {
-                    clearInterval(hoverInt);
-                }, 10000);
-            },
-
-            function () {
-                clearInterval(hoverInt);
-                clearTimeout(stopTimer);
-            }
-        );
-
+        this.growInterval = null;
+        this.stopTimer = null;
+        this.frameIndex = 0;
+        this.isGrowing = false;  
     });
 
+
+    //overlap?
+    function isOverlapping($a, $b) {
+        const a = $a[0].getBoundingClientRect();
+        const b = $b[0].getBoundingClientRect();
+
+        return !(
+            a.right < b.left ||
+            a.left > b.right ||
+            a.bottom < b.top ||
+            a.top > b.bottom
+        );
+    }
+
+    // Check overlap repeatedly
+    setInterval(() => {
+        const lamp = $("#lampWrapper");
+
+        $(".plant-pos img").each(function () {
+
+            const img = $(this);
+            const overlapping = isOverlapping(img, lamp);
+
+            if (overlapping && !this.isGrowing) {
+                // START GROWING
+                this.isGrowing = true;
+                this.frameIndex = 0;
+
+                clearInterval(this.growInterval);
+                clearTimeout(this.stopTimer);
+
+                this.growInterval = setInterval(() => {
+                    this.frameIndex = (this.frameIndex + 1) % plantImages.length;
+                    img.attr("src", plantImages[this.frameIndex]);
+                }, 2000);
+
+                this.stopTimer = setTimeout(() => {
+                    clearInterval(this.growInterval);
+                }, 10000);
+            }
+
+            if (!overlapping && this.isGrowing) {
+                // STOP GROWING IMMEDIATELY
+                this.isGrowing = false;
+                clearInterval(this.growInterval);
+                clearTimeout(this.stopTimer);
+            }
+
+        });
+    }, 200); 
+
 });
+
 
 $(function() {
     let isDragging = false;
@@ -73,3 +103,4 @@ $(function() {
         $("#lampWrapper").css("cursor", "grab");
     });
 });
+
