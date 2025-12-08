@@ -1,0 +1,15 @@
+.image-container {
+  display: flex; /* Aligns items in a row */
+  justify-content: space-around; /* Distributes space */
+  align-items: flex-end; /* Aligns items to the bottom of the container */
+  width: 100%;
+  /* Position at bottom */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.image-container img {
+  width: 30%; /* Adjust as needed */
+  height: auto;
+}
