@@ -1,10 +1,12 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-EN">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
 
     <head>
         <title>Hide 'n Show</title>
         <link rel="stylesheet" href="IntegratedPages.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     </head>
 
     <body class="spotlight-container page0Body",>
@@ -55,9 +57,7 @@
     <div id="page3winText" style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:200px; color:white; display: none;">
         <h2>Congratulations!</h2>
       <p>You found all the creatures!<br> And rustled through an empty bush?.. <br> You're so funny haha! <br> Onto the next adventure! <br> in about ~10 seconds</p>
-      <a onclick="showpage()">
-        <button onclick="showpage()">Next!</button>
-      </a>
+
     </div>
 
         </div>
@@ -79,12 +79,54 @@
                   <img id="page4plant5" src="plant1_1.png" alt="Plant">
               </div>
             </div>
+            <h5> Hover your mouse on the flowers to make them grow! </h5>
+            <button onclick="showpage()">Head to the next adventure!</button>
         </div>
         <div class="page5">
-            This is page 5 test test
+          <h2>Find the Hidden Key to unlock this Door!</h2> 
+          <div id="page5game">
+               <div id="page5rock">
+              <img src="rock.png" class="page5rock1"> 
+              <img src="rock.png" class="page5rock2"> 
+              <img src="rock.png" class="page5rock3"> 
+              <img src="rock.png" class="page5rock4"> 
+              <img src="rock.png" class="page5rock5"> 
+              <img src="rock.png" class="page5rock6"> 
+              <img src="rock.png" class="page5rock7"> 
+              <img src="rock.png" class="page5rock8"> 
+              
+              
+          </div>
+    </div>
+
+        <img src="door.png" class="page5door-closed"
+        style="width:12%;height:40%;">
+        
+        <a onclick="showpage()"> <img src="key.png"
+        alt="secret-door" style="width: 5%;height: 5%; position: absolute; top: 92%;left: 8%;z-index: 5;"
+        class="page5hidden-item"></a>
+
+          <div id="page5game"></div> 
+          <p id="message"></p> 
         </div>
         <div class="page6">
-            This is page 6 test test
+            
+   <h1 class="page6h1">Key is found, and Door is unlocked!</h1>
+<p class="page6p">Congrats! 
+<br> Claim your Trophy, and Thank you for Playing! </br> 
+End of Game.</p>
+
+  
+   <button class="page6button"> Go Back to Main Menu?</button>
+   </a>
+
+
+ <br>
+
+ <div class="page6winCup">
+   <img class="page6winCup" src="trophyCup.gif" alt="trophy cup hovers on screen" width=100% height=100%>
+   </a>
+ </div>
         </div>
         <div class="page7">
             This is page 7 test test
@@ -450,6 +492,74 @@ function update(e){
   document.addEventListener('touchmove',update)
 
 
+
+
+
+
+
+
+
+
+const rocks = document.getElementById('page5rock').children;
+
+for (let i = 0; i < rocks.length; i++) {
+    const rock = rocks[i]
+    rock.addEventListener("click", () => {
+        rock.style.opacity = "0";
+        rock.style.pointerEvents = "none";
+    });
+
+    rock.addEventListener("transitionend", () => {
+        const style = getComputedStyle(rock);
+        if (style.zIndex > 0) {
+            message.textContent ="YOU WIN! The door is Unlocked!";
+            message.style.color = "gold";
+            enableKeyDragging();
+        }
+    });
+    
+}
+
+
+// ----------------------
+// Door unlock logic
+// ----------------------
+    function checkUnlock() {
+        const keyRect = key.getBoundingClientRect();
+        const doorRect = door.getBoundingClientRect();
+
+        const overlap =
+            keyRect.left < doorRect.right &&
+            keyRect.right > doorRect.left &&
+            keyRect.top < doorRect.bottom &&
+            keyRect.bottom > doorRect.top;
+
+    if (overlap) {
+        unlockDoor();
+    }
+}
+
+    function unlockDoor() {
+        
+       
+        
+        
+        gameEnded = true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //if (playerReward === 0){
 
   const spotlightContainer = document.querySelector('.spotlight-container');
@@ -554,9 +664,14 @@ function showpage() {
         } else if (playerReward === 5) {
             page4.style.display = "none";
             page5.style.display = "block";
+            document.body.classList.remove("page4Body");
+            document.body.classList.add("page5body");
         } else if (playerReward === 6) {
             page5.style.display = "none";
             page6.style.display = "block";
+            document.body.classList.remove("page5body");
+            document.body.classList.add("page6body");
+
         } else if (playerReward === 7) {
             page6.style.display = "none";
             page7.style.display = "block";

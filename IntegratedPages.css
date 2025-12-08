@@ -220,3 +220,148 @@
 .page4p5 img {
     height: 700px;
 }
+
+
+/* Background for Flipping Stones Page */
+
+.page5body {
+    font-family: sans-serif;
+    text-align: center;
+
+    background-image: url("flower-field.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.page5h2 {
+    color: white;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 40px;
+}
+
+
+.page5rock1 {
+    position: absolute;   /* <-- THIS is what you're missing */
+    width: 200px;
+    height: 100px;
+    top: 90%;
+    left: 10px;
+    transition: opacity 0.4s ease;
+     z-index: 999;
+}
+.page5rock2 {
+    height: 100px;
+    width: 190px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+
+}
+
+.page5rock3 {
+    width: 100px;
+    height: 50px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 90%;
+    left: 27%;
+
+}
+
+.page5rock4 {
+     width: 140px;
+    height: 80px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 90%;
+    left: 60%;
+    
+}
+
+.page5rock5 {
+     width: 40px;
+    height: 20px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 45%;
+    left: 40%;
+   
+}
+.page5rock6 {
+     width: 70px;
+    height: 40px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 60%;
+    left: 40%;
+   
+}
+
+.page5rock7 {
+     width: 150px;
+    height: 80px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 80%;
+    left: 80%;
+   
+}
+.page5rock8 {
+     width: 60px;
+    height: 30px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 60%;
+    left: 70%;
+   
+}
+.page5rock.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  
+}
+
+.page5hidden-item {
+    width: 5%;
+    height: 5%;
+    position: absolute;
+    top: 92%;
+    left: 8%;
+    z-index: 5;
+}
+
+/* Flipping Stones win page */
+
+.page6body {
+  background-image: url("flower-field.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.page6h1,.page5p {
+   text-align: center; display: flex; justify-content: center;
+   color: white;
+}
+
+ .page6winCup {
+  display: flex;
+  justify-content: center;
+ }
+
+ .page6button {
+    padding: 50px;
+ }
