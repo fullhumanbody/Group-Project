@@ -54,13 +54,31 @@
 
     <div id="page3winText" style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:200px; color:white; display: none;">
         <h2>Congratulations!</h2>
-      <p>You found all the creatures!<br> And rustled through an empty bush?.. <br> You're so funny haha! <br> Onto the next adventure!</p>
-      <button onclick="showpage()">Next!</button>
+      <p>You found all the creatures!<br> And rustled through an empty bush?.. <br> You're so funny haha! <br> Onto the next adventure! <br> in about ~10 seconds</p>
+      <a onclick="showpage()">
+        <button onclick="showpage()">Next!</button>
+      </a>
     </div>
 
         </div>
         <div class="page4">
-            This is page 4 test test
+            <div class="page4plants">
+              <div class="page4plant-pos page4p1">
+                  <img id="page4plant1" src="plant1_1.png" alt="Plant">
+              </div>
+              <div class="page4plant-pos page4p2">
+                  <img id="page4plant2" src="plant1_1.png" alt="Plant">
+              </div>
+              <div class="page4plant-pos page4p3">
+                  <img id="page4plant3" src="plant1_1.png" alt="Plant">
+              </div>
+              <div class="page4plant-pos page4p4">
+                  <img id="page4plant4" src="plant1_1.png" alt="Plant">
+              </div>
+              <div class="page4plant-pos page4p5">
+                  <img id="page4plant5" src="plant1_1.png" alt="Plant">
+              </div>
+            </div>
         </div>
         <div class="page5">
             This is page 5 test test
@@ -105,6 +123,54 @@
 
 
 <script>
+
+
+function livFlowers() {
+
+    var plantImages = [
+        "plant1_2.png",
+        "plant1_3.png",
+        "plant1_4.png",
+        "plant1_5.png"
+    ];
+
+    plantImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    $(".page4plant-pos img").each(function () {
+
+        let hoverInt = null;
+        let stopTimer = null;
+        let index = 0;
+
+        $(this).hover(
+            function () {
+                const img = $(this);
+                clearInterval(hoverInt);
+                clearTimeout(stopTimer);
+                index = 0;
+
+                hoverInt = setInterval(() => {
+                    index = (index + 1) % plantImages.length;
+                    img.attr("src", plantImages[index]);
+                }, 2000);
+
+                stopTimer = setTimeout(() => {
+                    clearInterval(hoverInt);
+                }, 10000);
+            },
+
+            function () {
+                clearInterval(hoverInt);
+                clearTimeout(stopTimer);
+            }
+        );
+
+    });
+
+};
 
 
 // Crazy Bug Game Code Below  ########################################################################################################################################
@@ -352,11 +418,21 @@ function playSoundBush() {
 }
 
 var winText = document.getElementById('page3winText');
+var dingdong = false;
 function checkWinCondition() {
   if (bush1Found === true && bush2Found === true && bush3Found === true) {
+    if (dingdong === false) {
+      dingdong = true;
       console.log("You found all the animals HURAYYY!!!!");
       // Display win message or trigger win event here
       winText.style.display = "block";
+      console.log("Timer will now comence for next page");
+      setTimeout(() => {
+        console.log("Oh boy here we gooooo");
+        playerReward = 3;
+        showpage();
+        }, 11000); // 10000 milliseconds = 10 seconds
+      }
   }
 }
 
@@ -469,8 +545,12 @@ function showpage() {
             document.body.classList.remove("page2Body");
             document.body.classList.add("spotlight-container","page3Body");
         } else if (playerReward === 4) {
+            alert("Wow you really found those animals! And the one bush! George Bush?");
             page4.style.display = "block";
             page3.style.display = "none";
+            document.body.classList.remove("spotlight-container","page3Body");
+            document.body.classList.add("page4Body");
+            livFlowers()
         } else if (playerReward === 5) {
             page4.style.display = "none";
             page5.style.display = "block";
