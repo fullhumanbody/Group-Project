@@ -77,14 +77,6 @@ window.onload = function () {
   // spawn bugs continuously
   spawnInterval = setInterval(createBug, 1000);
 
-  // -------------------------
-  // END GAME FUNCTION
-  // -------------------------
-  function endGame() {
-    clearInterval(spawnInterval);
-    console.log("Game Over, redirecting...");
-    window.location.href = "buggameover.html";
-  }
 };
 
 
@@ -115,3 +107,4 @@ $(function () {
     $("#lampWrapper").css("cursor", "grab");
   });
 });
+
