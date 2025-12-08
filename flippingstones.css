@@ -119,14 +119,4 @@ h2 {
 
 
 
-.secret-door {  
-    position: absolute;
-    width: 100px;      /* adjust as needed */
-    bottom: 30%;      /* position on screen */
-    left: 40%;
-    transform: translateX(50%);
-    cursor: pointer;
-    transition: opacity 2%;
-    
   
-}
