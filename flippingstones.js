@@ -69,5 +69,8 @@ for (let i = 0; i < rocks.length; i++) {
 
     function unlockDoor() {
         
+       
+        
+        
         gameEnded = true;
 }
