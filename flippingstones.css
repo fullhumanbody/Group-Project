@@ -2,7 +2,7 @@ body {
     font-family: sans-serif;
     text-align: center;
 
-    background-image: url("backgroundrock.jpg");
+    background-image: url("flower-field.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -14,13 +14,6 @@ h1 {
     color: white;
     text-shadow: 2px 2px 4px black;
     margin-top: 20px;
-}
-
-#game {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 50px;
 }
 
 .rock {
