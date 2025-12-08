@@ -1,43 +1,49 @@
 // light up plants and make them grow AND hovering over certain plants makes them grow 
 
 
-//series of assets for plants : SMOOTH or ROUGH , sm-m-lrg , or what else 
-//hover to make grow + glow .hover() 
-
 $(document).ready(function () {
-    var plant1Images = [
-        "plant1.2.png",
-        "plant1.3.png",
-        "plant1.4.png",
-        "plant1.5.png"
+
+    var plantImages = [
+        "images/plant1_2.png",
+        "images/plant1_3.png",
+        "images/plant1_4.png",
+        "images/plant1_5.png"
     ];
 
-    var hoverInt, stop;
-    var index = 0; 
-    $("#plant1").hover(
-        function () {
-            var img = $(this);
-            index = 0
-            
-            // changing image every 3 seconds 
-            hoverInt = setInterval(function () {
-                index = (index + 1) % plant1Images.length; 
-                img.attr("src", plant1Images[index]);
-            }, 2000);
-            // stop at 15 seconds 
-            stop = setTimeout(function() {
+    plantImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    $(".plant-pos img").each(function () {
+
+        let hoverInt = null;
+        let stopTimer = null;
+        let index = 0;
+
+        $(this).hover(
+            function () {
+                const img = $(this);
                 clearInterval(hoverInt);
-            }, 10000);
+                clearTimeout(stopTimer);
+                index = 0;
 
-        },
+                hoverInt = setInterval(() => {
+                    index = (index + 1) % plantImages.length;
+                    img.attr("src", plantImages[index]);
+                }, 2000);
 
-        function () {
-            clearInterval(hoverInt);
-            clearTimeout(stop)
-        }
-    );
+                stopTimer = setTimeout(() => {
+                    clearInterval(hoverInt);
+                }, 10000);
+            },
+
+            function () {
+                clearInterval(hoverInt);
+                clearTimeout(stopTimer);
+            }
+        );
+
+    });
 
 });
-
-
-
