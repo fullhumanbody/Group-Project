@@ -57,72 +57,56 @@
 
 <script>
 
-function showpage1() {
-  var x = document.getElementsByClassName("page1");
-  x = x[0]; // Get the first element from the HTMLCollection
-  if (x){
-    console.log("Element found");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
+
+    var page1 = document.getElementsByClassName("page1");
+    page1 = page1[0];
+    var page2 = document.getElementsByClassName("page2");
+    page2 = page2[0];
+    var page3 = document.getElementsByClassName("page3");
+    page3 = page3[0];
+    var page4 = document.getElementsByClassName("page4");
+    page4 = page4[0];
+    var page5 = document.getElementsByClassName("page5");
+    page5 = page5[0];
+    console.log("showpage function called");
+
+
+let playerReward = 0;
+if (typeof playerReward !== 'undefined') {
+    console.log("playerReward exists with value: " + playerReward);
 } else {
-    console.log("Element not found"); }
+    console.log("playerReward does not exist");
 }
 
 
-    //Replace or make a new var for each page. For example:
-    // if you made a new page with class "page6", you would do:
-    //  var pg6 = document.getElementsByClassName("page6");
-    //  pg6 = pg6[0];
-    // And that should implement your page into the system. Now the site will hide your code until it's ready.
-    var pg1 = document.getElementsByClassName("page1");
-    pg1 = pg1[0];
-    var pg2 = document.getElementsByClassName("page2");
-    pg2 = pg2[0];
-    var pg3 = document.getElementsByClassName("page3");
-    pg3 = pg3[0];
-    var pg4 = document.getElementsByClassName("page4");
-    pg4 = pg4[0];
-    var pg5 = document.getElementsByClassName("page5");
-    pg5 = pg5[0];
-    console.log("showpage function called");
+function showpageTest() {
+    console.log("showpageTest function called");
 
-    const pages = [pg1, pg2, pg3, pg4, pg5];
-    //let pageShown = false;
-
-    let lastPage;
-
-function showpage() {
-    console.log("showpage function called");
-
-    for (let i = 0; i< pages.length; i++) {
-        const page = pages[i];
-        //console.log("Current page:", page);
-        if (page) {
-            const pageStyle = window.getComputedStyle(page);
-            //console.log("current page is: "+page);
-            if (pageStyle.display === "none") {
-                //if (lastPage){
-                //lastPage.style.display = "none";
-                //}
-                console.log(`Showing page ${i + 1}`);
-                page.style.display = "block";
-                //pageShown = true;
-                
-                console.log(page);
-                //console.log(lastPage);
-
-                //lastPage = page;
-                //console.log(lastPage);
-                
-                break;
-            }
+        playerReward = playerReward + 1;
+        console.log("playerReward is now: " + playerReward);
+        if (playerReward === 1) {
+            page1.style.display = "block";
+            page2.style.display = "none";
+            page3.style.display = "none";
+            page4.style.display = "none";
+            page5.style.display = "none";
+        } else if (playerReward === 2) {
+            page2.style.display = "block";
+            page1.style.display = "none";
+        } else if (playerReward === 3) {
+            page3.style.display = "block";
+            page2.style.display = "none";
+        } else if (playerReward === 4) {
+            page4.style.display = "block";
+            page3.style.display = "none";
+        } else if (playerReward === 5) {
+            page4.style.display = "none";
+            page5.style.display = "block";
+        } else {
+            console.log("No valid reward");
         }
-    }
-}
 
+}
 
 
     let started = false;
@@ -145,57 +129,6 @@ function showpage() {
         console.log("Already started");
     }
 
-//showpage();
-if (pg1){
-    console.log("this is the ["+pg1.style.display+"] pg1 display value" );
-}
-if (pg1){
-    console.log("this is the ["+window.getComputedStyle(pg1).display+"] pg1 display value" );
-}
-
-
-//0000000000000000000000000000000000000000000000000000000000000000000000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHH
-
-    var test1 = document.getElementsByClassName("page1");
-    test1 = test1[0];
-    var test2 = document.getElementsByClassName("page2");
-    test2 = test2[0];
-    var test3 = document.getElementsByClassName("page3");
-    test3 = test3[0];
-    var test4 = document.getElementsByClassName("page4");
-    test4 = test4[0];
-    var test5 = document.getElementsByClassName("page5");
-    test5 = test5[0];
-    console.log("showpage function called");
-
-
-    var playerReward = 0;
-
-    if (playerReward) {
-
-        if (playerReward === 1) {
-            test1.style.display = "block";
-            test2.style.display = "none";
-            test3.style.display = "none";
-            test4.style.display = "none";
-            test5.style.display = "none";
-        } else if (playerReward === 2) {
-            test2.style.display = "block";
-        } else if (playerReward === 3) {
-            test3.style.display = "block";
-            test2.style.display = "none";
-        } else if (playerReward === 4) {
-            test4.style.display = "block";
-            test3.style.display = "none";
-        } else if (playerReward === 5) {
-            test5.style.display = "block";
-        } else {
-            console.log("No valid reward");
-        }
-
-    }
-
-
 
 
 
@@ -203,3 +136,4 @@ if (pg1){
 
 
 </html>
+
