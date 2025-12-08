@@ -4,10 +4,10 @@
 $(document).ready(function () {
 
     var plantImages = [
-        "images/plant1_2.png",
-        "images/plant1_3.png",
-        "images/plant1_4.png",
-        "images/plant1_5.png"
+        "plant1_2.png",
+        "plant1_3.png",
+        "plant1_4.png",
+        "plant1_5.png"
     ];
 
     plantImages.forEach(src => {
