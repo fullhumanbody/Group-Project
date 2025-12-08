@@ -28,51 +28,84 @@ h2 {
      z-index: 999;
 }
 .rock2 {
-    width: 180px;
+    height: 100px;
+    width: 190px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+
+}
+
+.rock3 {
+    width: 100px;
+    height: 50px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 90%;
+    left: 27%;
+
+}
+
+.rock4 {
+     width: 140px;
+    height: 80px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 90%;
+    left: 60%;
+    
+}
+
+.rock5 {
+     width: 40px;
+    height: 20px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 45%;
+    left: 40%;
+   
+}
+.rock6 {
+     width: 70px;
+    height: 40px;
+    /* fade out effect */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 60%;
+    left: 40%;
+   
+}
+
+.rock7 {
+     width: 150px;
     height: 80px;
     /* fade out effect */
     transition: opacity 0.4s ease;
     position: absolute;
     top: 80%;
-    left: 30%;
-
+    left: 80%;
+   
 }
-
-.rock3 {
-     width: 100px;
-    height: 50px;
+.rock8 {
+     width: 60px;
+    height: 30px;
     /* fade out effect */
     transition: opacity 0.4s ease;
     position: absolute;
     top: 60%;
-    left: 50%;
-
-}
-
-.rock4 {
-     width: 200px;
-    height: 100px;
-    /* fade out effect */
-    transition: opacity 0.4s ease;
-    position: absolute;
-    top: 80%;
     left: 70%;
+   
 }
-
-.rock5 {
-     width: 90px;
-    height: 40px;
-    /* fade out effect */
-    transition: opacity 0.4s ease;
-    position: absolute;
-    top: 55%;
-    left: 30%;
-}
-
 .rock.hidden {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
+  
 }
 
 .hidden-item {
@@ -86,13 +119,14 @@ h2 {
 
 
 
-.door-closed {  
+.secret-door {  
     position: absolute;
     width: 100px;      /* adjust as needed */
-    bottom: 40%;      /* position on screen */
+    bottom: 30%;      /* position on screen */
     left: 40%;
     transform: translateX(50%);
     cursor: pointer;
     transition: opacity 2%;
-    z-index: 999;
+    
+  
 }
