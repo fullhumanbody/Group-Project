@@ -102,3 +102,68 @@
 }
 
 
+/* Background for Page 2 */
+.page2body {
+  background-image: url('forest-deer.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.page2h1,.page2p {
+   text-align: center; display: flex; justify-content: center;
+   color: white;
+}
+
+ .page2winCup {
+  display: flex;
+  justify-content: center;
+ }
+
+
+
+/* Background for Page 3 */
+.page3bushImages {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.page3bushImages img {
+  width: 70%; /* Adjust as needed */
+  height: auto;
+}
+
+
+.page3body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #111; 
+  background-image: url('forest-deer.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+#page3lampWrapper {
+    position: absolute;
+    left: 200px;
+    top: 300px;
+    cursor: grab;
+} 
+/* grab div instead of just the image because it can be modified more easily */
+
+#page3handLamp {
+    width: 200px; 
+    user-select: none; 
+    pointer-events: none; 
+}
+
+.w3-animate-fadingAway{animation:fading 5s }@keyframes fading{100%{opacity:0}50%{opacity:0}0%{opacity:0}}
+
+

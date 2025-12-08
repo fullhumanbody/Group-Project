@@ -25,10 +25,39 @@
 
         </div> <!-- End of Page 1 content #######################################################################################################-->
         <div class="page2">
-            This is page 2 test test
+          <!-- Main content goes here, inside BODY -->
+          <h1 class="page2h1">YOU CAUGHT 30 BUGS!</h1>
+          <p class="page2p"> Good stuff! <br> Claim your Trophy and go look for some creatures!</p>
+
+          <br>
+          <div class="page2winCup">
+            <a onclick="showpage()">
+            <img class="page2winCup" src="trophyCup.gif" alt="trophy cup hovers on screen" width=100% height=100%>
+            </a>
+          </div>
         </div>
         <div class="page3">
-            This is page 3 test test
+        
+          
+    <div class="page3bushImages">
+      <img id="page3bush1" src="bush-manzanitabug.png" onmouseover="playSoundLadybug(),foundBush1()" style="width:250px;height:200px;"/>
+      <img id="page3bush2" src="bush-coyotedog.png" onmouseover="playSoundCoyote(),foundBush1()"  style="width:250px;height:200px;"/>
+      <img id="page3bush3" src="bush-zorro.png" onmouseover="playSoundBush(),foundBush1()" style="width:250px;height:200px;"/>
+    </div>
+    <!--Sound's creditted in links(becuz we aren't animals)-->
+    <audio id="page3coyoteSound" src="Coyote.mp3"></audio>
+    <!-- https://www.youtube.com/shorts/_B6ykKbFl2g --->
+    <audio id="page3ladybugSound" src="ladybug.m4a"></audio>
+    <!-- https://www.youtube.com/watch?v=_aBGa176U8s -->
+     <audio id="page3bushSound" src="bush.mp3"></audio>
+    <!-- https://www.youtube.com/watch?v=gla8pkGYObQ -->
+
+    <div id="page3winText" style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:200px; color:white; display: none;">
+        <h2>Congratulations!</h2>
+      <p>You found all the creatures!<br> And rustled through an empty bush?.. <br> You're so funny haha! <br> Onto the next adventure!</p>
+      <button onclick="showpage()">Next!</button>
+    </div>
+
         </div>
         <div class="page4">
             This is page 4 test test
@@ -216,6 +245,7 @@ $(function () {
 });
 
 
+
 function removeDivsByClass(className) {
     // 1. Select all elements that match the class name.
     // document.querySelectorAll() returns a NodeList of all matching elements.
@@ -233,8 +263,115 @@ function removeDivsByClass(className) {
     });
 }
 
+var bush1Found = false;
+var bush2Found = false;
+var bush3Found = false;
+
+function foundBush1() {
+    //bush1Found = true;
+
+if (bush1Found === true) {
+    console.log("Bush 1 is found");
+    bush1Found = true;
+}
+if (bush2Found === true) {
+    console.log("Bush 2 is found");
+    bush2Found = true;
+}
+if (bush3Found === true) {
+    console.log("Bush 3 is found");
+    bush3Found = true;
+}
+
+if (bush1Found === true && bush2Found === true && bush3Found === true) {
+    console.log("You found all the animals!");
+    checkWinCondition();
+}
+
+}
+
+var sound = document.getElementById('page3coyoteSound');
+var coyoteBush = document.getElementById("page3bush2");
+function playSoundCoyote() {
+
+  if (bush2Found === false) {
+    bush2Found = true;
+    // Check if the sound is already playing
+    if (sound.paused) {
+        // Start the sound from the beginning
+        sound.currentTime = 0;
+        sound.play();
+        coyoteBush.classList.add("w3-animate-fadingAway");
+        setTimeout(() => {
+          coyoteBush.style.visibility = "hidden";
+          coyoteBush.classList.remove("w3-animate-fadingAway");
+        }, 4800); // 10000 milliseconds = 10 seconds
+    }
+  }
+}
 
 
+var bugsound = document.getElementById('page3ladybugSound');
+var ladybugBush = document.getElementById("page3bush1");
+function playSoundLadybug() {
+
+  if (bush1Found === false) {
+    bush1Found = true;
+    // Check if the sound is already playing
+    if (bugsound.paused) {
+        // Start the sound from the beginning
+        bugsound.currentTime = 0;
+        bugsound.play();
+        ladybugBush.classList.add("w3-animate-fadingAway");
+        setTimeout(() => {
+          ladybugBush.style.visibility = "hidden";
+          ladybugBush.classList.remove("w3-animate-fadingAway");
+        }, 4800); // 10000 milliseconds = 10 seconds
+    }
+  }
+}
+
+var Bushsound = document.getElementById('page3bushSound');
+var bushBush = document.getElementById("page3bush3");
+function playSoundBush() {
+
+  if (bush3Found === false) {
+    bush3Found = true;
+    // Check if the sound is already playing
+    if (Bushsound.paused) {
+        // Start the sound from the beginning
+        Bushsound.currentTime = 0;
+        Bushsound.play();
+        bushBush.classList.add("w3-animate-fadingAway");
+        setTimeout(() => {
+          bushBush.style.visibility = "hidden";
+          bushBush.classList.remove("w3-animate-fadingAway");
+        }, 4800); // 10000 milliseconds = 10 seconds
+    }
+  }
+}
+
+var winText = document.getElementById('page3winText');
+function checkWinCondition() {
+  if (bush1Found === true && bush2Found === true && bush3Found === true) {
+      console.log("You found all the animals HURAYYY!!!!");
+      // Display win message or trigger win event here
+      winText.style.display = "block";
+  }
+}
+
+
+// dont touch this code but i think its important
+function update(e){
+    var x = e.clientX || e.touches[0].clientX
+    var y = e.clientY || e.touches[0].clientY
+  
+    document.documentElement.style.setProperty('--cursorX', x + 'px')
+    document.documentElement.style.setProperty('--cursorY', y + 'px')
+  }
+  
+  document.addEventListener('mousemove',update)
+  document.addEventListener('touchmove',update)
 
 
 //if (playerReward === 0){
@@ -316,7 +453,7 @@ function showpage() {
             page1.style.display = "block";
             page0.style.display = "none";
             document.body.classList.remove("spotlight-container","page0Body");
-            document.body.classList.add("page1Body");
+            document.body.classList.add("page1body");
             spawnInterval = setInterval(createBug, 500);
         } else if (playerReward === 2 && bugsZapped >= maxZaps) {
             playerReward = 2;
@@ -324,12 +461,13 @@ function showpage() {
             page2.style.display = "block";
             page1.style.display = "none";
             document.body.classList.remove("page1Body");
-            //document.body.classList.add("page2Body");
+            document.body.classList.add("page2Body");
             removeDivsByClass('page1bug');
-            console.log("The other stuff works so like. Oh well i guess?");
         } else if (playerReward === 3) {
             page3.style.display = "block";
             page2.style.display = "none";
+            document.body.classList.remove("page2Body");
+            document.body.classList.add("spotlight-container","page3Body");
         } else if (playerReward === 4) {
             page4.style.display = "block";
             page3.style.display = "none";
