@@ -40,15 +40,15 @@ window.onload = function () {
       
       // zap counter
    
-      if (isColliding(bug, lamp)) {
-        bug.remove();
+   if (isColliding(bug, lamp)) {
+  bug.remove();
 
-        bugsZapped++;
-        console.log("Zapped:", bugsZapped);
+  bugsZapped++;
+  document.getElementById("counter").textContent = "Bugs caught: " + bugsZapped;
 
-        if (bugsZapped >= maxZaps) {
-          endGame();
-        }
+  if (bugsZapped >= maxZaps) {
+    endGame();
+  }
 
         return;
       }
@@ -107,5 +107,6 @@ $(function () {
     $("#lampWrapper").css("cursor", "grab");
   });
 });
+
 
 
