@@ -82,7 +82,18 @@
 let bugsZapped = 0;
 let maxZaps = 30;
 let spawnInterval;  // store interval so we can stop spawning bugs
+let bugEnd = true;
 
+function properEndGame() {
+  clearInterval(spawnInterval);
+  if (bugEnd === true) {
+    alert("Congratulations, you have zapped 30 bugs!");
+    showpage();
+    bugEnd = false;
+  } else {
+    bugEnd = false;
+}
+}
 
   function createBug() {
     const bug = document.createElement("div");
@@ -139,6 +150,9 @@ let spawnInterval;  // store interval so we can stop spawning bugs
     moveBug();
   }
 
+
+
+
     function isColliding(a, b) {
     const r1 = a.getBoundingClientRect();
     const r2 = b.getBoundingClientRect();
@@ -150,10 +164,10 @@ let spawnInterval;  // store interval so we can stop spawning bugs
   }
 
   function endGame() {
-  playerReward = playerReward + 1;
-  showpage();
   clearInterval(spawnInterval);
-  alert("Congratulations, you have zapped 30 bugs!"); 
+  properEndGame();
+  bugEnd = false;
+
 }
 
 window.onload = function () {
@@ -169,6 +183,8 @@ window.onload = function () {
 
   
 };
+
+
 
 
 
@@ -200,7 +216,22 @@ $(function () {
 });
 
 
+function removeDivsByClass(className) {
+    // 1. Select all elements that match the class name.
+    // document.querySelectorAll() returns a NodeList of all matching elements.
+    const elementsToRemove = document.querySelectorAll(`div.${className}`);
 
+    // 2. Iterate through the NodeList and remove each element.
+    // A for...of loop or Array.from().forEach() works well for NodeLists.
+    elementsToRemove.forEach(element => {
+        // The element must be removed from its parent node.
+        if (element.parentNode) {
+            element.parentNode.removeChild(element);
+        }
+        // Alternatively, the more modern and concise way:
+        // element.remove(); 
+    });
+}
 
 
 
@@ -287,9 +318,15 @@ function showpage() {
             document.body.classList.remove("spotlight-container","page0Body");
             document.body.classList.add("page1Body");
             spawnInterval = setInterval(createBug, 500);
-        } else if (playerReward === 2) {
+        } else if (playerReward === 2 && bugsZapped >= maxZaps) {
+            playerReward = 2;
+            console.log("Switching to page 2");
             page2.style.display = "block";
             page1.style.display = "none";
+            document.body.classList.remove("page1Body");
+            //document.body.classList.add("page2Body");
+            removeDivsByClass('page1bug');
+            console.log("The other stuff works so like. Oh well i guess?");
         } else if (playerReward === 3) {
             page3.style.display = "block";
             page2.style.display = "none";
