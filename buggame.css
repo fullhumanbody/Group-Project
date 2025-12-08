@@ -22,7 +22,7 @@ body {
 }
 
 #handLamp {
-  width: 70px; 
+  width: 200px; 
   height: auto;
 }
 
@@ -36,4 +36,5 @@ body {
   position: absolute;
   pointer-events: none;
 }
+
 
