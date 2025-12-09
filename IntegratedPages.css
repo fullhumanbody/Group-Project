@@ -394,3 +394,45 @@
  .page6button {
     padding: 50px;
  }
+
+
+
+ /* HUD: pages completed box (top-right, persistent) */
+#pagesCompletedDisplay {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.trophy-room {
+  text-align: center;
+  color: white;
+}
+
+.page7body {
+  background-image: url("meadows.jpeg"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.trophy-room-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 40px auto;
+}
+
+.trophyImage {
+  max-width: 150px;
+  height: auto;
+}

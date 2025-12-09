@@ -10,12 +10,14 @@
     </head>
 
     <body class="spotlight-container page0Body",>
+        <!-- Persistent pages-completed HUD -->
+        <div id="pagesCompletedDisplay">Pages completed: 0</div>
 
     <!------------------------------------------------------------------------------------------------------------------------------------>
         
 
         <div class="page0"> <!-- Page 0 content ###################################################################################------------>
-            <button id="page0StartButt" style="display: flex; position: relative; left: 340px; top: 390px;" onclick="showpage()">Start Your Adventure!</button>
+            <button id="page0StartButt" style="display: flex; position: relative; left: 356px; top: 390px;" onclick="showpage()">Start Your Adventure!</button>
         </div> <!-- End of Page 0 content #######################################################################################################-->
 
         <div class="page1"> <!-- Page 1 content ###################################################################################------------>
@@ -34,7 +36,7 @@
           <br>
           <div class="page2winCup">
             <a onclick="showpage()">
-            <img class="page2winCup" src="trophyCup.gif" alt="trophy cup hovers on screen" width=100% height=100%>
+            <img class="page2winCup" src="trophy-batteries.png" alt="Your trophy hovers on screen" width=100% height=100% style="display: flex; position: relative; bottom: 250px;">
             </a>
           </div>
         </div>
@@ -56,12 +58,15 @@
 
     <div id="page3winText" style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:200px; color:white; display: none;">
         <h2>Congratulations!</h2>
-      <p>You found all the creatures!<br> And rustled through an empty bush?.. <br> You're so funny haha! <br> Onto the next adventure! <br> in about ~10 seconds</p>
-
+      <p>You found all the creatures!<br> And rustled through an empty bush?.. <br> You're so funny haha! <br> Onto the next adventure!</p>
+      <p>Take this <bold>Light Bulb</bold> as a reward!</p>
+      <img src="trophy-bulb.png" alt="light bulb reward" style="width:200px; height:200px;" onclick="showpage()"/>
+      
     </div>
 
         </div>
         <div class="page4">
+          <div class="page4contents">
             <div class="page4plants">
               <div class="page4plant-pos page4p1">
                   <img id="page4plant1" src="plant1_1.png" alt="Plant">
@@ -83,7 +88,17 @@
               <img id="page4handLamp" src="lamp-temp-glow.png" />
             </div>
             <h5> Hover your mouse on the flowers to make them grow! </h5>
-            <button onclick="showpage()">Head to the next adventure!</button>
+            <button onclick="livFlowersWin()">Head to the next adventure!</button>
+            </div>
+            <div class="page4winText" style="display:none; flex-direction:column; align-items:center; text-align:center; margin-top:200px; color:white;">
+                <h2>Wow you really grew those flowers!</h2>
+              <p>You did it!<br> You've grown the flowers! <br> On to the next adventure!</p>
+              <p>Take this <bold>Lamp Shade</bold> as a reward!</p>
+              <img src="trophy-shade.png" alt="shade reward" style="width:200px; height:200px;" onclick="showpage()"/>
+
+            </div>
+
+
         </div>
         <div class="page5">
           <h2>Find the Hidden Key to unlock this Door!</h2> 
@@ -114,25 +129,36 @@
         </div>
         <div class="page6">
             
-   <h1 class="page6h1">Key is found, and Door is unlocked!<br> Looks like you finished our game! Sad to see you go but.. <br> Head to the next page to see what you accomplished!</h1>
-<p class="page6p">Congrats! 
-<br> Claim your Trophy, and Thank you for Playing! </br> 
-End of Game.</p>
+   <h1 class="page6h1">The Key is found, and the Door is unlocked!<br> Looks like you finished our game! Sad to see you go but.... <br> Pick up the key one last time to see what you've accomplished!</h1>
 
-  
-   <button class="page6button" onclick="trappedlol()"> Go Back to Main Menu?</button>
-   </a>
+<img style="display: flex; position: relative; display: block; left: 500px;" src="trophy-key.png" width="450px" height="450px" onclick="showpage()"/>
 
 
- <br>
 
- <div class="page6winCup">
-   <img class="page6winCup" src="trophyCup.gif" alt="trophy cup hovers on screen" width=100% height=100%>
-   </a>
- </div>
         </div>
         <div class="page7">
-            This is page 7 test test
+            <!--THE FINAL TROPHY ROOM-->
+            
+          <div class="trophy-room">
+            <h1>You collected all the trophies! Good job! :}</h1>
+            <p>Restart to page to Restart the game</p>
+
+            <div class="trophy-room-grid">
+              <!-- Re-show all trophies here; same srcs as above so you can swap in one place if you want -->
+              <img class="trophyImage trophy-game1"
+                   src="trophy-batteries.png"
+                   >
+              <img class="trophyImage trophy-game2"
+                   src="trophy-bulb.png"
+                   >
+              <img class="trophyImage trophy-game3"
+                   src="trophy-shade.png"
+                   >
+              <img class="trophyImage trophy-game4"
+                   src="trophy-key.png"
+                   >
+            </div>
+            <audio id="trophyRoomAudio" src="PeakExploringAudio.ogg"></audio>
         </div>
         <div class="page8">
             This is page 8 test test
@@ -172,6 +198,31 @@ End of Game.</p>
 
 function trappedlol() {
     alert("lol vic didnt finish so you're trapped here moohoohaha. or you can go back a single page and escape.");
+}
+
+const trophyMusic = document.getElementById("trophyRoomAudio");
+trophyMusic.volume = 0.1;
+
+function playAudio() {
+  trophyMusic.volume = 0.1;
+  trophyMusic.play();
+}
+
+function pauseAudio() {
+  trophyMusic.volume = 0.1;
+  trophyMusic.pause();
+}
+
+var page4winText = document.getElementsByClassName('page4winText');
+page4winText = page4winText[0];
+var page4contents = document.getElementsByClassName("page4contents");
+page4contents = page4contents[0];
+function livFlowersWin() {
+  console.log("livFlowersWin function called");
+  console.log(page4winText);
+  console.log(page4contents);
+    page4winText.style.display = "block";
+    page4contents.style.display = "none";
 }
 
 
@@ -534,11 +585,8 @@ function checkWinCondition() {
       // Display win message or trigger win event here
       winText.style.display = "block";
       console.log("Timer will now comence for next page");
-      setTimeout(() => {
-        console.log("Oh boy here we gooooo");
         playerReward = 3;
-        showpage();
-        }, 11000); // 10000 milliseconds = 10 seconds
+        updatePagesCompletedDisplay();
       }
   }
 }
@@ -680,6 +728,14 @@ if (typeof playerReward !== 'undefined') {
     console.log("playerReward does not exist");
 }
 
+function updatePagesCompletedDisplay() {
+    const el = document.getElementById("pagesCompletedDisplay");
+    if (el) {
+        el.textContent = "Pages completed: " + playerReward;
+    }
+}
+updatePagesCompletedDisplay();
+
 page1.style.display = "none";
 page2.style.display = "none";
 page3.style.display = "none";
@@ -698,6 +754,7 @@ page14.style.display = "none";
 function showpage() {
     console.log("showpageTest function called");
     playerReward = playerReward + 1;
+    updatePagesCompletedDisplay();
 
         console.log("playerReward is now: " + playerReward);
         if (playerReward === 1) {
@@ -720,7 +777,6 @@ function showpage() {
             document.body.classList.remove("page2Body");
             document.body.classList.add("spotlight-container","page3Body");
         } else if (playerReward === 4) {
-            alert("Wow you really found those animals! And the one bush! George Bush?");
             page4.style.display = "block";
             page3.style.display = "none";
             document.body.classList.remove("spotlight-container","page3Body");
@@ -733,14 +789,20 @@ function showpage() {
             document.body.classList.add("page5body");
             document.body.classList.add("spotlight-container");
         } else if (playerReward === 6) {
+            playerReward = 6;
             page5.style.display = "none";
             page6.style.display = "block";
             document.body.classList.remove("page5body");
             document.body.classList.add("page6body");
             document.body.classList.remove("spotlight-container");
         } else if (playerReward === 7) {
+          //THE TROPHY ROOOOOOOOOOOOOOOOOOOOOOOOOOOOM
+            playerReward = 7;
             page6.style.display = "none";
             page7.style.display = "block";
+            document.body.classList.remove("page6body");
+            document.body.classList.add("page7body");
+            playAudio();
         } else if (playerReward === 8) {
             page7.style.display = "none";
             page8.style.display = "block";
