@@ -1,6 +1,5 @@
 /* Integrated Pages' CSS */
 
-
 #pageTitle {
     text-align: center;
     text-decoration: underline;
@@ -14,7 +13,7 @@
   cursor: none;
   --cursorX: 50%;
   --cursorY: 50%;
-  width: 100vw; 
+  width: 100vw;
   height: 100vh;
   position: relative;
 }
@@ -24,15 +23,20 @@
   display: block;
   width: 100%;
   height: 100%;
-  position: fixed; 
+  position: fixed;
   pointer-events: none;
   background: radial-gradient(
-    circle 10vmax at var(--cursorX) var(--cursorY),
+    circle 25vmax at var(--cursorX) var(--cursorY),
     rgba(0,0,0,0) 0%,
     rgba(0,0,0,.5) 80%,
     rgba(0,0,0,.95) 100%
   );
-  z-index: 999; 
+  z-index: 999;
+}
+
+/* Disable low light effect on the start page */
+.page0Body.spotlight-container:before {
+  background: none;
 }
 
 /* Background for Page 0 */
@@ -43,7 +47,32 @@
   background-attachment: fixed;
 }
 
+/* 🔹 Make all game-page text white by default */
+.page1, .page2, .page3, .page4, .page5,
+.page6, .page7, .page8, .page9, .page10,
+.page11, .page12, .page13, .page14 {
+  color: white;
+}
 
+/* Shared lamp styling for draggable lamps (page1, page3, page4, etc.) */
+.lampWrapper {
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    cursor: grab;
+}
+
+.lampWrapper img {
+    width: 200px;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Slight offset for the page 3 lamp */
+#page3lampWrapper {
+  top: 300px;
+}
 
 /* Bug Game CSS */
 .page1body {
@@ -51,37 +80,24 @@
     height: 100vh;
     overflow: hidden;
     background: #111;
-  background-image: url('night-glow.jpeg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-#page1lampWrapper {
-    position: absolute;
-    left: 200px;
-    top: 200px;
-    cursor: grab;
-} 
-
-
-#page1handLamp {
-    width: 200px; 
-    user-select: none; 
-    pointer-events: none; 
+    background-image: url('night-glow.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 #page1handLamp {
-  width: 200px; 
-  height: auto;
+    width: 200px;
+    user-select: none;
+    pointer-events: none;
 }
 
 .page1bug {
   width: 80px;
   height: 80px;
   background-image: url("bug.png");
-  background-size: cover;    
-  background-position: center; 
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   position: absolute;
   pointer-events: none;
@@ -101,6 +117,20 @@
   pointer-events: none;
 }
 
+/* HUD: pages completed box (top-right, persistent) */
+#pagesCompletedDisplay {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  pointer-events: none;
+}
 
 /* Background for Page 2 */
 .page2body {
@@ -115,14 +145,12 @@
    color: white;
 }
 
- .page2winCup {
+.page2trophy {
   display: flex;
   justify-content: center;
- }
+}
 
-
-
-/* Background for Page 3 */
+/* Background + layout for Page 3 (hidden animal) */
 .page3bushImages {
   display: flex;
   justify-content: space-around;
@@ -133,40 +161,34 @@
 }
 
 .page3bushImages img {
-  width: 70%; /* Adjust as needed */
+  width: 70%;
   height: auto;
 }
-
 
 .page3body {
     margin: 0;
     height: 100vh;
     overflow: hidden;
-    background: #111; 
-  background-image: url('forest-deer.jpeg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+    background: #111;
+    background-image: url('forest-deer.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-
-#page3lampWrapper {
-    position: absolute;
-    left: 200px;
-    top: 300px;
-    cursor: grab;
-} 
-/* grab div instead of just the image because it can be modified more easily */
-
 #page3handLamp {
-    width: 200px; 
-    user-select: none; 
-    pointer-events: none; 
+    width: 200px;
+    user-select: none;
+    pointer-events: none;
 }
 
 .w3-animate-fadingAway{animation:fading 5s }@keyframes fading{100%{opacity:0}50%{opacity:0}0%{opacity:0}}
 
-/* Background for Page 4 */
+#page3Trophy {
+  cursor: pointer;
+}
+
+/* Background for Page 4 (flowers) */
 
 .page4body {
   background-image: url('flower-field.jpeg');
@@ -176,9 +198,9 @@
 }
 
 .page4plants {
-    position: relative;   
+    position: relative;
     width: 100%;
-    height: 600px;        
+    height: 600px;
 }
 
 .page4p1 { top: 300px; left: 180px; }
@@ -187,22 +209,20 @@
 .page4p4 { top: 220px; left: 1200px; }
 .page4p5 { top: 250px; left: 1300px; }
 
-
 .page4plant-pos {
     position: absolute;
     display: inline-block;
-    pointer-events: none;       
+    pointer-events: none;
 }
 
-
 .page4plant-pos img {
-    pointer-events: auto;       
-    transform-origin: bottom center; 
-    height: 200px;             
+    pointer-events: auto;
+    transform-origin: bottom center;
+    height: 200px;
 }
 
 .page4p1 img {
-    height: 150px; 
+    height: 150px;
 }
 
 .page4p2 img {
@@ -210,17 +230,33 @@
 }
 
 .page4p3 img {
-    height: 300px; 
+    height: 300px;
 }
 
 .page4p4 img {
-    height: 150px; 
+    height: 150px;
 }
 
 .page4p5 img {
     height: 700px;
 }
 
+/* Page 4 trophy + win screen */
+.page4trophy {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.page4winScreen {
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+}
+
+#page4completeButton {
+  margin-top: 20px;
+}
 
 /* Background for Flipping Stones Page */
 
@@ -243,95 +279,80 @@
     margin-top: 40px;
 }
 
-
 .page5rock1 {
-    position: absolute;   /* <-- THIS is what you're missing */
+    position: absolute;
     width: 200px;
     height: 100px;
     top: 90%;
     left: 10px;
     transition: opacity 0.4s ease;
-     z-index: 999;
+    z-index: 999;
 }
 .page5rock2 {
     height: 100px;
     width: 190px;
-    /* fade out effect */
     transition: opacity 0.4s ease;
     position: absolute;
     top: 75%;
     left: 50%;
-
 }
 
 .page5rock3 {
     width: 100px;
     height: 50px;
-    /* fade out effect */
     transition: opacity 0.4s ease;
     position: absolute;
     top: 90%;
     left: 27%;
-
 }
 
 .page5rock4 {
-     width: 140px;
+    width: 140px;
     height: 80px;
-    /* fade out effect */
     transition: opacity 0.4s ease;
     position: absolute;
     top: 90%;
     left: 60%;
-    
 }
 
 .page5rock5 {
-     width: 40px;
+    width: 40px;
     height: 20px;
-    /* fade out effect */
     transition: opacity 0.4s ease;
     position: absolute;
     top: 45%;
     left: 40%;
-   
 }
 .page5rock6 {
-     width: 70px;
+    width: 70px;
     height: 40px;
-    /* fade out effect */
     transition: opacity 0.4s ease;
     position: absolute;
     top: 60%;
     left: 40%;
-   
 }
 
 .page5rock7 {
-     width: 150px;
+    width: 150px;
     height: 80px;
-    /* fade out effect */
     transition: opacity 0.4s ease;
     position: absolute;
     top: 80%;
     left: 80%;
-   
 }
 .page5rock8 {
-     width: 60px;
+    width: 60px;
     height: 30px;
-    /* fade out effect */
     transition: opacity 0.4s ease;
     position: absolute;
     top: 60%;
     left: 70%;
-   
 }
+
 .page5rock.hidden {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
-  
 }
 
 .page5hidden-item {
@@ -357,11 +378,46 @@
    color: white;
 }
 
- .page6winCup {
+.page6winCup {
   display: flex;
   justify-content: center;
- }
+}
 
- .page6button {
+.page6button {
     padding: 50px;
- }
+}
+
+.trophyImage {
+  max-width: 150px;
+  height: auto;
+}
+
+/* Trophy Room (Page 7) */
+.trophyRoomBody {
+  background-image: url("trophy-room.png"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.trophy-room {
+  text-align: center;
+  color: white;
+  padding-top: 80px;
+}
+
+.trophy-room-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 40px auto;
+}
+
+.restartButton {
+  padding: 20px 40px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
