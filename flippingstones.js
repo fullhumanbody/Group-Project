@@ -77,29 +77,20 @@ for (let i = 0; i < rocks.length; i++) {
 
 
 }
+    const spotlightContainer = document.querySelector('.spotlight-container');
 
-$(function () {
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  $("#lampWrapper").on("mousedown", function (e) {
-    isDragging = true;
-    offsetX = e.clientX - $(this).position().left;
-    offsetY = e.clientY - $(this).position().top;
-    $(this).css("cursor", "grabbing");
+      spotlightContainer.addEventListener('mousemove', (e) => {
+      spotlightContainer.style.setProperty('--cursorX', `${e.clientX}px`);
+      spotlightContainer.style.setProperty('--cursorY', `${e.clientY}px`);
   });
 
-  $(document).on("mousemove", function (e) {
-    if (isDragging) {
-      $("#lampWrapper").css({
-        left: e.clientX - offsetX,
-        top: e.clientY - offsetY
-      });
-    }
-  });
-
-  $(document).on("mouseup", function () {
-    isDragging = false;
-    $("#lampWrapper").css("cursor", "grab");
-  });
-});
+    function update(e){
+    var x = e.clientX || e.touches[0].clientX
+    var y = e.clientY || e.touches[0].clientY
+  
+    document.documentElement.style.setProperty('--cursorX', x + 'px')
+    document.documentElement.style.setProperty('--cursorY', y + 'px')
+  }
+  
+    document.addEventListener('mousemove',update)
+    document.addEventListener('touchmove',update)
