@@ -555,7 +555,7 @@ for (let i = 0; i < rocks.length; i++) {
     rock.addEventListener("transitionend", () => {
         const style = getComputedStyle(rock);
         if (style.zIndex > 0) {
-            message.textContent ="YOU WIN! The door is Unlocked!";
+            message.textContent ="YOU WIN! The door is Unlocked! Click the key to pick it up!";
             message.style.color = "gold";
             enableKeyDragging();
         }

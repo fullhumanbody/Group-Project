@@ -67,10 +67,30 @@ for (let i = 0; i < rocks.length; i++) {
     }
 }
 
+
     function unlockDoor() {
         
        
         
         
         gameEnded = true;
+
+
 }
+    const spotlightContainer = document.querySelector('.spotlight-container');
+
+      spotlightContainer.addEventListener('mousemove', (e) => {
+      spotlightContainer.style.setProperty('--cursorX', `${e.clientX}px`);
+      spotlightContainer.style.setProperty('--cursorY', `${e.clientY}px`);
+  });
+
+    function update(e){
+    var x = e.clientX || e.touches[0].clientX
+    var y = e.clientY || e.touches[0].clientY
+  
+    document.documentElement.style.setProperty('--cursorX', x + 'px')
+    document.documentElement.style.setProperty('--cursorY', y + 'px')
+  }
+  
+    document.addEventListener('mousemove',update)
+    document.addEventListener('touchmove',update)

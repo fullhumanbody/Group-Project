@@ -16,6 +16,7 @@
   width: 100vw;
   height: 100vh;
   position: relative;
+  z-index: 900;
 }
 
 .spotlight-container:before {
@@ -45,6 +46,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+
+.page0StartButt{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 /* 🔹 Make all game-page text white by default */
@@ -361,7 +368,7 @@
     position: absolute;
     top: 92%;
     left: 8%;
-    z-index: 5;
+    z-index: 1;
 }
 
 /* Flipping Stones win page */
