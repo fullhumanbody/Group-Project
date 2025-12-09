@@ -17,6 +17,7 @@
   width: 100vw; 
   height: 100vh;
   position: relative;
+  z-index: 900;
 }
 
 .spotlight-container:before {
@@ -41,6 +42,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+
+.page0StartButt{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 
@@ -251,7 +258,7 @@
     top: 90%;
     left: 10px;
     transition: opacity 0.4s ease;
-     z-index: 999;
+    z-index: 900;
 }
 .page5rock2 {
     height: 100px;
@@ -340,7 +347,7 @@
     position: absolute;
     top: 92%;
     left: 8%;
-    z-index: 5;
+    z-index: 1;
 }
 
 /* Flipping Stones win page */

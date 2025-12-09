@@ -15,7 +15,7 @@
         
 
         <div class="page0"> <!-- Page 0 content ###################################################################################------------>
-            <button id="page0StartButt" style="display: flex; position: relative; left: 380; top: 390;" onclick="showpage()">Start</button>
+            <button id="page0StartButt" style="display: flex; position: relative; left: 340px; top: 390px;" onclick="showpage()">Start Your Adventure!</button>
         </div> <!-- End of Page 0 content #######################################################################################################-->
 
         <div class="page1"> <!-- Page 1 content ###################################################################################------------>
@@ -517,7 +517,7 @@ for (let i = 0; i < rocks.length; i++) {
     rock.addEventListener("transitionend", () => {
         const style = getComputedStyle(rock);
         if (style.zIndex > 0) {
-            message.textContent ="YOU WIN! The door is Unlocked!";
+            message.textContent ="YOU WIN! The door is Unlocked! Click the key to pick it up!";
             message.style.color = "gold";
             enableKeyDragging();
         }
@@ -671,12 +671,13 @@ function showpage() {
             page5.style.display = "block";
             document.body.classList.remove("page4Body");
             document.body.classList.add("page5body");
+            document.body.classList.add("spotlight-container");
         } else if (playerReward === 6) {
             page5.style.display = "none";
             page6.style.display = "block";
             document.body.classList.remove("page5body");
             document.body.classList.add("page6body");
-
+            document.body.classList.remove("spotlight-container");
         } else if (playerReward === 7) {
             page6.style.display = "none";
             page7.style.display = "block";
